@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
+    private Vector2 beforeDir;
     public float jumpForce;
     public float jumpStamina;
     public LayerMask groundLayerMask;
+    public bool isMove;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -34,11 +36,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
           Cursor.lockState = CursorLockMode.Locked;
+          isMove=true;
     }
     
     void FixedUpdate()
     {
-        Move();
+        if(isMove)
+        {
+            Move();
+        }        
     }
 
     private void LateUpdate()
@@ -50,11 +56,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void Move()
-    {
+    {        
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        dir *= moveSpeed; 
         dir.y = _rigidbody.velocity.y;
-
         _rigidbody.velocity = dir;
     }
 
