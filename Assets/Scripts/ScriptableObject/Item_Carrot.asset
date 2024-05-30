@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e575903f95dd345a8c4d4594ee50fb, type: 3}
+  m_Name: Item_Carrot
+  m_EditorClassIdentifier: 
+  displayName: "\uB2F9\uADFC"
+  description: "\uC218\uBA85\uC5F0\uC7A5"
+  type: 0
+  icon: {fileID: 21300000, guid: b53822ec75d701e49b9947d1d09fd81e, type: 3}
+  dropPrefab: {fileID: 4113351754325361618, guid: 9a9b7950d2f82cb45a41f1052ea2807b, type: 3}
+  canStack: 0
+  maxStackAmount: 0
+  consumables:
+  - type: 0
+    value: 300
+  equipPrefab: {fileID: 0}
