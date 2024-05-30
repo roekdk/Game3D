@@ -58,9 +58,23 @@ public class PlayerController : MonoBehaviour
     void Move()
     {        
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed; 
+        dir *= moveSpeed;
         dir.y = _rigidbody.velocity.y;
         _rigidbody.velocity = dir;
+
+        if(curMovementInput != Vector2.zero)
+        {
+            _rigidbody.velocity = dir;
+            beforeDir= dir;
+        }
+        else
+        {
+            if(curMovementInput != beforeDir)
+            {
+                _rigidbody.velocity = dir;
+                beforeDir= dir;
+            }
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)

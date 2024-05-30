@@ -11,7 +11,7 @@ public class TrapPad : MonoBehaviour
         if(other.gameObject.GetComponent<Rigidbody>())
         {   
             StartCoroutine(MoveLock());
-            Vector3 forceDirection = (Vector3.forward/2 + Vector3.up).normalized;            
+            Vector3 forceDirection = (Vector3.forward/3 + Vector3.up).normalized;            
             other.gameObject.GetComponent<Rigidbody>().AddForce(forceDirection * jumpForce, ForceMode.Impulse); 
         }
     }
