@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
-    private Vector2 beforeDir;
+    private Vector3 beforeDir;
     public float jumpForce;
     public float jumpStamina;
     public LayerMask groundLayerMask;
-    public bool isMove;
+    public bool isMove=true;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -35,8 +35,7 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-          Cursor.lockState = CursorLockMode.Locked;
-          isMove=true;
+          Cursor.lockState = CursorLockMode.Locked;          
     }
     
     void FixedUpdate()
@@ -44,7 +43,7 @@ public class PlayerController : MonoBehaviour
         if(isMove)
         {
             Move();
-        }        
+        }
     }
 
     private void LateUpdate()
@@ -62,14 +61,14 @@ public class PlayerController : MonoBehaviour
         dir.y = _rigidbody.velocity.y;
         _rigidbody.velocity = dir;
 
-        if(curMovementInput != Vector2.zero)
+        if(dir != Vector3.zero)
         {
             _rigidbody.velocity = dir;
             beforeDir= dir;
         }
         else
         {
-            if(curMovementInput != beforeDir)
+            if(dir != beforeDir)
             {
                 _rigidbody.velocity = dir;
                 beforeDir= dir;
